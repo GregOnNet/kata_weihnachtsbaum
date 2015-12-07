@@ -49,7 +49,7 @@ class Tree {
   }
 
   private intend(row_length: number): string {
-    var spaces = ''
+    var spaces = '';
     var spacesCount = (this.foundation.length -
                        row_length) / 2;
 
