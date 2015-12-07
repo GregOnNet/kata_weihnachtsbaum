@@ -9,23 +9,23 @@ class Tree {
     this.rows = [];
   }
 
-  spread(number_of_branches: number) {
+  spread(number_of_branches: number): Tree {
     this.foundation = new TreeNeedles(number_of_branches);
     this.rows.push(this.foundation);
     return this;
   }
 
-  grow() {
+  grow(): Tree {
     this.addThinnerRow(this.foundation.length, 2)
     return this;
   }
 
-  decorate() {
+  decorate(): Tree {
     this.decoration = new Decoration();
     return this;
   }
 
-  present() {
+  present(): string {
     var tree = this.rows.slice(0);
 
     if(this.decoration)
@@ -43,12 +43,12 @@ class Tree {
     return this.clean(output);
   }
 
-  private addThinnerRow(base:number, thinning: number) {
+  private addThinnerRow(base: number, thinning: number): void {
     for(let i = base - thinning; i > 0; i-= thinning)
       this.rows.unshift(new TreeNeedles(i));
   }
 
-  private intend(row_length: number) {
+  private intend(row_length: number): string {
     var spaces = ''
     var spacesCount = (this.foundation.length -
                        row_length) / 2;
@@ -59,13 +59,13 @@ class Tree {
     return spaces;
   }
 
-  private format(row: ITreeRow) {
+  private format(row: ITreeRow): string {
     return row.branches.reduce((current, next) =>
       `${current}${next}`) +
       '\n';
   }
 
-  private clean(output: string) {
+  private clean(output: string): string {
     var lastLineBreak = output.lastIndexOf('\n');
     return output.substr(0, lastLineBreak);
   }
