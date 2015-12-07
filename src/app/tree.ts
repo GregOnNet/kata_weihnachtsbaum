@@ -16,7 +16,7 @@ class Tree {
   }
 
   grow() {
-    this.addThinnerRow(this.foundation.branches.length, 2)
+    this.addThinnerRow(this.foundation.length, 2)
     return this;
   }
 
@@ -37,7 +37,7 @@ class Tree {
     var output = '';
 
     for(let row of tree)
-      output += this.intend(row.branches.length) +
+      output += this.intend(row.length) +
                 this.format(row);
 
     return this.clean(output);
@@ -50,7 +50,7 @@ class Tree {
 
   private intend(row_length: number) {
     var spaces = ''
-    var spacesCount = (this.foundation.branches.length -
+    var spacesCount = (this.foundation.length -
                        row_length) / 2;
 
     for(let i = 0; i < spacesCount; i++)
