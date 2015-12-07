@@ -22,8 +22,8 @@
     "compileOnSave": true,
     "buildOnSave": false,
     "files": [
+        "app/contracts/i-tree-row.ts",
         "app/decoration.ts",
-        "app/i-tree-row.ts",
         "app/row.ts",
         "app/tree.ts",
         "app/trunk.ts",
